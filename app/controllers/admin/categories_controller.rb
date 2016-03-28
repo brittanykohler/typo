@@ -5,14 +5,13 @@ class Admin::CategoriesController < Admin::BaseController
   def edit; new_or_edit;  end
 
   def new
-    respond_to do |format|
-      format.html { new_or_edit }
-      format.js {
-        @category = Category.new
-      }
-    end
-    @categories = [Category.new]
     render 'new'
+    # respond_to do |format|
+    #   format.html { new_or_edit }
+    #   format.js {
+    #     @category = Category.new
+    #   }
+    # end
   end
 
   def destroy
