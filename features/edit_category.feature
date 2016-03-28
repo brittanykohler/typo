@@ -9,10 +9,10 @@ Feature: Edit Categories
 
   Scenario: Successfully create categories
     Given I am on the categories page
-    When I press "Edit"
-    And I fill in "name" with "Name"
-    And I fill in "keywords" with "Lorem Ipsum"
-    And I fill in "description" with "Lorem Ipsum"
+    When I follow "Edit"
+    When I fill in "category_name" with "Name"
+    And I fill in "category_keywords" with "Lorem Ipsum"
+    And I fill in "category_description" with "Lorem Ipsum"
     And I press "Save"
     Then I should be on the categories page
-    Then I should see "Foobar"
+    Then I should see "Name"
