@@ -1,12 +1,10 @@
-hi
+<% @page_heading = _("Categories") %>
 
-<!-- <% @page_heading = _("Categories") %>
-
-<div class='left_form'> -->
+<div class='left_form'>
   <!-- NOTE:
        Do not modify :action=>"edit" since the autograder depends on it
    -->
-  <!-- <%= form_tag :action=>"edit", :id => @category.id do %>
+  <%= form_tag :action=>"edit", :id => @category.id do %>
   <%= error_messages_for 'category' %>
   <div class='clearfix'>
     <label for="category_name"><%= _("Name")%></label>
@@ -62,4 +60,4 @@ hi
     </tr>
     <% end -%>
   </table>
-</div> -->
+</div>
