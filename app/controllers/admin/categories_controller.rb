@@ -11,6 +11,7 @@ class Admin::CategoriesController < Admin::BaseController
         @category = Category.new
       }
     end
+    @categories = [Category.new]
     render 'new'
   end
 
