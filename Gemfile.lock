@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     RedCloth (4.2.9)
     abstract (1.0.0)
@@ -205,3 +205,6 @@ DEPENDENCIES
   thin
   uuidtools (~> 2.1.1)
   webrat
+
+BUNDLED WITH
+   1.11.2
