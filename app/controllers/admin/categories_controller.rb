@@ -31,7 +31,8 @@ class Admin::CategoriesController < Admin::BaseController
       @category = Category.new
     end
     if request.post?
-      @category.attributes = category_params
+      # @category.attributes = category_params
+      @category.attributes = params[:category]
       respond_to do |format|
         format.html { save_category }
         format.js do
@@ -55,10 +56,9 @@ class Admin::CategoriesController < Admin::BaseController
     redirect_to :action => 'new'
   end
 
-  private
-
-  def category_params
-    params.require(:category).permit(:name, :keywords, :permalink, :description)
-  end
-
+  # private
+  #
+  # def category_params
+  #   params.require(:category).permit(:name, :keywords, :permalink, :description)
+  # end
 end
