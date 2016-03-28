@@ -27,7 +27,7 @@ class Admin::CategoriesController < Admin::BaseController
     @categories = Category.find(:all)
     if params[:id]
       @category = Category.find(params[:id])
-      @category.attributes = params[:category]
+      @category.attributes = category_params
     else
       @category = Category.new
     end
@@ -53,6 +53,12 @@ class Admin::CategoriesController < Admin::BaseController
       flash[:error] = _('Category could not be saved.')
     end
     redirect_to :action => 'new'
+  end
+
+  private
+
+  def category_params
+    params.require(:category).permit(:name, :keywords, :permalink, :description)
   end
 
 end
