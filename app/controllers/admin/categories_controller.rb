@@ -27,11 +27,11 @@ class Admin::CategoriesController < Admin::BaseController
     @categories = Category.find(:all)
     if params[:id]
       @category = Category.find(params[:id])
-      @category.attributes = category_params
     else
       @category = Category.new
     end
     if request.post?
+      @category.attributes = category_params
       respond_to do |format|
         format.html { save_category }
         format.js do
