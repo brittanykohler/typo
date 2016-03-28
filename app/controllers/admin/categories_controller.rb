@@ -55,10 +55,4 @@ class Admin::CategoriesController < Admin::BaseController
     end
     redirect_to :action => 'new'
   end
-
-  # private
-  #
-  # def category_params
-  #   params.require(:category).permit(:name, :keywords, :permalink, :description)
-  # end
 end
