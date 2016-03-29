@@ -13,9 +13,9 @@ Feature: Merge Articles
 
   Scenario: When articles are merged, the merged article should contain the text of both previous articles
     Given I am on the first article edit page
-    When I fill in "merge_with" with "2"
+    When I fill in "merge_with" with "3"
     And I press "Merge"
     Then I should be on the article index page
-    When I follow "Edit"
+    When I follow "Hello World"
     Then I should be on the first article edit page
-    Then I should see "First article Second article"
+    Then I should see "HI"

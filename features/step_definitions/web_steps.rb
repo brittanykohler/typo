@@ -47,18 +47,21 @@ Given /^the blog is set up$/ do
                 :profile_id => 2,
                 :name => 'brittany',
                 :state => 'active'})
-  Content.create!({ :id => 1,
-                    :type => 'Article',
-                    :title => 'Hello World',
-                    :body => 'First article',
-                    :author => "Brittany",
-                  })
-  Content.create!({ :id => 2,
-                    :type => 'Article',
-                    :title => 'Goodbye World',
-                    :body => 'Second article',
-                    :author => "George",
-                  })
+  Article.create!({:type => "Article",
+                   :title => "Goodbye World",
+                   :author => "Brittany",
+                   :body => "HI",
+                   :extended => nil,
+                   :excerpt => nil,
+                   :user_id => 1,
+                   :published => true,
+                   :allow_pings => nil,
+                   :allow_comments => nil,
+                   :published_at => nil,
+                   :state => "published",
+                   :parent_id => nil,
+                   :settings => {},
+                   :post_type => "read"})
 end
 
 And /^I am logged into the admin panel$/ do

@@ -38,8 +38,8 @@ class Admin::ContentController < Admin::BaseController
   end
 
   def merge
-    @article = Article.find(params[:id])
-    # @article.merge_with(params[:merge_with])
+    current_article = Article.find(params[:id])
+    @article = current_article.merge_with(params[:merge_with])
     new_or_edit
   end
 

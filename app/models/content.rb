@@ -62,6 +62,14 @@ class Content < ActiveRecord::Base
 
   include Stateful
 
+  def merge_with(other_article_id)
+    other_article = Article.find(other_article_id)
+    current_body = self.body
+    self.body = current_body + other_article.body
+    self.save
+    return self
+  end
+
   def invalidates_cache?(on_destruction = false)
     @invalidates_cache ||= if on_destruction
       just_changed_published_status? || published?
@@ -69,14 +77,14 @@ class Content < ActiveRecord::Base
       (changed? && published?) || just_changed_published_status?
     end
   end
-  
+
   def shorten_url
     return unless self.published
-    
+
     r = Redirect.new
     r.from_path = r.shorten
     r.to_path = self.permalink_url
-    
+
     # This because updating self.redirects.first raises ActiveRecord::ReadOnlyRecord
     unless (red = self.redirects.first).nil?
       return if red.to_path == self.permalink_url
@@ -298,4 +306,3 @@ class ContentTextHelpers
   include ActionView::Helpers::TextHelper
   extend ActionView::Helpers::SanitizeHelper::ClassMethods
 end
-
