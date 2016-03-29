@@ -10,3 +10,10 @@ Feature: Merge Articles
   Scenario: Admins can see merge option
     Given I am on the edit article page
     Then I should see "Merge Articles"
+
+  Scenario: When articles are merged, the merged article should contain the text of both previous articles
+    Given I am on the edit article page
+    When I fill in "merge_with" with "2"
+    And I press "Merge"
+    Then I should be on the edit article page
+    Then I should see "First article Second article"

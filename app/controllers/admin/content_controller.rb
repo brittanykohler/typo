@@ -38,7 +38,9 @@ class Admin::ContentController < Admin::BaseController
   end
 
   def merge
-    raise
+    @article = Article.find(params[:id])
+    # @article.merge_with(params[:merge_with])
+    new_or_edit
   end
 
   def destroy
@@ -151,7 +153,7 @@ class Admin::ContentController < Admin::BaseController
 
     @post_types = PostType.find(:all)
     if request.post?
-      if params[:article][:draft]
+      if params[:article] && params[:article][:draft]
         get_fresh_or_existing_draft_for_article
       else
         if not @article.parent_id.nil?
@@ -193,6 +195,8 @@ class Admin::ContentController < Admin::BaseController
       flash[:notice] = _('Article was successfully created')
     when 'edit'
       flash[:notice] = _('Article was successfully updated.')
+    when 'merge'
+      flash[:notice] = _('Article was successfully merged.')
     else
       raise "I don't know how to tidy up action: #{params[:action]}"
     end

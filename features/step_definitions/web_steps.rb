@@ -47,6 +47,18 @@ Given /^the blog is set up$/ do
                 :profile_id => 2,
                 :name => 'brittany',
                 :state => 'active'})
+  Content.create!({ :id => 1,
+                    :type => 'Article',
+                    :title => 'Hello World',
+                    :body => 'First article',
+                    :author => "Brittany",
+                  })
+  Content.create!({ :id => 2,
+                    :type => 'Article',
+                    :title => 'Goodbye World',
+                    :body => 'Second article',
+                    :author => "George",
+                  })
 end
 
 And /^I am logged into the admin panel$/ do
