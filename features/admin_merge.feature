@@ -7,6 +7,6 @@ Feature: Merge Articles
     Given the blog is set up
     And I am logged into the admin panel
 
-  Scenario: Only admins can see merge option
+  Scenario: Admins can see merge option
     Given I am on the edit article page
     Then I should see "Merge Articles"
