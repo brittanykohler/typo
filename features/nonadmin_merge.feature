@@ -8,5 +8,5 @@ Feature: Merge Articles
     And I am logged in as a contributor
 
   Scenario: Non-admins cannot see merge option
-    Given I am on the edit article page
+    Given I am on the first article edit page
     Then I should not see "Merge Articles"
