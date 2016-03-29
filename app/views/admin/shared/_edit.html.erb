@@ -7,5 +7,9 @@
 
 <% if @article and @article.id %>
   <h3><%= _("Merge Articles")%></h3>
-
+  <%= form_tag(form_action, :id => "merge_form") do %>
+    <%= label_tag "Article ID" %>
+    <%= text_field_tag :merge_with %>
+    <%= submit_tag "Merge" %>
+  <% end %>
 <% end %>
