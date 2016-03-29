@@ -4,3 +4,8 @@
   <%= render :partial => "form" %>
 
 <% end %>
+
+<% if @article and @article.id %>
+  <h3><%= _("Merge Articles")%></h3>
+
+<% end %>
