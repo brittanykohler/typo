@@ -43,6 +43,9 @@ Rails.application.routes.draw do
   match 'xml/rsd', :to => 'xml#rsd', :format => false
   match 'xml/feed', :to => 'xml#feed'
 
+  # ContentController
+  post "content/merge", :to => 'content#merge'
+
   # CommentsController
   resources :comments, :as => 'admin_comments' do
     collection do

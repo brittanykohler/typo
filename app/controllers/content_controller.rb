@@ -16,6 +16,10 @@ class ContentController < ApplicationController
     end
   end
 
+  def merge
+    raise
+  end
+
   include LoginSystem
   before_filter :setup_themer
   helper :theme
