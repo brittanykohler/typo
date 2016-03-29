@@ -62,14 +62,6 @@ class Content < ActiveRecord::Base
 
   include Stateful
 
-  def merge_with(other_article_id)
-    other_article = Article.find(other_article_id)
-    current_body = self.body
-    self.body = current_body + other_article.body
-    self.save
-    return self
-  end
-
   def invalidates_cache?(on_destruction = false)
     @invalidates_cache ||= if on_destruction
       just_changed_published_status? || published?
