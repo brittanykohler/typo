@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   match 'xml/feed', :to => 'xml#feed'
 
   # ContentController
-  post "content/merge/:id", :to => 'content#merge'
+  post "content/merge/:id", :to => 'admin/content#merge'
 
   # CommentsController
   resources :comments, :as => 'admin_comments' do
