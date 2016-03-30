@@ -97,14 +97,15 @@ class Article < Content
   def merge_with(other_article_id)
     other_article = Article.find(other_article_id)
     # Merge body
-    current_body = self.body
-    self.body = current_body + other_article.body
+    # current_body = self.body
+    self.body = self.body + other_article.body
     self.save
     # Merge comments
     other_article.comments.each do |comment|
       comment.article_id = self.id
       comment.save
     end
+    other_article.delete
     return self
   end
 
