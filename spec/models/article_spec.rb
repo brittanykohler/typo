@@ -68,8 +68,8 @@ describe Article do
   end
 
   describe "#merge_with" do
-    it "returns an article object" do
-      a1 = Article.create({:type => "Article",
+    before(:each) do
+      @a1 = Article.create({:type => "Article",
                        :title => "Goodbye World",
                        :author => "Brittany",
                        :body => "HI",
@@ -84,7 +84,7 @@ describe Article do
                        :parent_id => nil,
                        :settings => {},
                        :post_type => "read"})
-     a2 = Article.create({:type => "Article",
+     @a2 = Article.create({:type => "Article",
                       :title => "Hello World",
                       :author => "Brittany",
                       :body => "YO",
@@ -99,7 +99,13 @@ describe Article do
                       :parent_id => nil,
                       :settings => {},
                       :post_type => "read"})
-      expect(a1.merge_with(a2.id)).to be_an_instance_of Article
+    end
+    it "returns an article object" do
+      expect(@a1.merge_with(@a2.id)).to be_an_instance_of Article
+    end
+
+    it "combines the bodies of the articles" do
+      expect((@a1.merge_with(@a2.id)).body).to eq "HIYO"
     end
   end
 
