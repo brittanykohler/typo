@@ -9,7 +9,7 @@
   <h3><%= _("Merge Articles")%></h3>
   <%= form_tag("/content/merge/#{@article.id}", :id => "merge_form") do %>
     <%= label_tag "Article" %>
-    <%= select_tag "Articles", options_from_collection_for_select(Article.where("id != ?", @article.id).where(user_id: current_user.id), "id", "title") %>
+    <%= select_tag "merge_with", options_from_collection_for_select(Article.where("id != ?", @article.id).where(user_id: current_user.id), "id", "title") %>
     <%= submit_tag "Merge" %>
   <% end %>
 <% end %>
