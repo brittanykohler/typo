@@ -64,6 +64,30 @@ Given /^the blog is set up$/ do
                    :post_type => "read"})
 end
 
+Given /^each article has a comment$/ do
+  Comment.create!({ :type => "Comment",
+                    :title => nil,
+                    :author => "Brittany",
+                    :body => "Comment1",
+                    :created_at => "2016-03-29 23:15:37",
+                    :updated_at => "2016-03-29 23:15:37",
+                    :user_id => 1,
+                    :article_id => 1
+                  })
+  Comment.create!({ :type => "Comment",
+                    :title => nil,
+                    :author => "George",
+                    :body => "Comment2",
+                    :created_at => "2016-03-29 23:15:37",
+                    :updated_at => "2016-03-29 23:15:37",
+                    :user_id => 1,
+                    :article_id => 3
+                  })
+end
+
+
+
+
 And /^I am logged into the admin panel$/ do
   visit '/accounts/login'
   fill_in 'user_login', :with => 'admin'

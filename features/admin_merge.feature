@@ -5,6 +5,7 @@ Feature: Merge Articles
 
   Background:
     Given the blog is set up
+    And each article has a comment
     And I am logged into the admin panel
 
   Scenario: Admins can see merge option
@@ -33,4 +34,5 @@ Feature: Merge Articles
     When I fill in "merge_with" with "3"
     And I press "Merge"
     Then I should be on the article index page
-    Then I should see "2"
+    When I follow "2"
+    Then I should see "Comment2"
