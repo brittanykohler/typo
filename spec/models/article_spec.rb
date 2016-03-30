@@ -107,6 +107,28 @@ describe Article do
     it "combines the bodies of the articles" do
       expect((@a1.merge_with(@a2.id)).body).to eq "HIYO"
     end
+
+    it "merges the comments of the articles" do
+      Comment.create!({ :type => "Comment",
+                        :title => nil,
+                        :author => "Brittany",
+                        :body => "Comment1",
+                        :created_at => "2016-03-29 23:15:37",
+                        :updated_at => "2016-03-29 23:15:37",
+                        :user_id => 1,
+                        :article_id => @a1.id
+                      })
+      Comment.create!({ :type => "Comment",
+                        :title => nil,
+                        :author => "George",
+                        :body => "Comment2",
+                        :created_at => "2016-03-29 23:15:37",
+                        :updated_at => "2016-03-29 23:15:37",
+                        :user_id => 1,
+                        :article_id => @a2.id
+                      })
+      expect((@a1.merge_with(@a2.id)).comments.count).to eq 2
+    end
   end
 
   it "test_edit_url" do
