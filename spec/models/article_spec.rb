@@ -129,6 +129,10 @@ describe Article do
                       })
       expect((@a1.merge_with(@a2.id)).comments.count).to eq 2
     end
+
+    it "deletes the other article" do
+      expect{ @a1.merge_with(@a2.id) }.to change(Article, :count).by(-1)
+    end
   end
 
   it "test_edit_url" do
