@@ -53,7 +53,7 @@ Given /^the blog is set up$/ do
                    :body => "HI",
                    :extended => nil,
                    :excerpt => nil,
-                   :user_id => 2,
+                   :user_id => 1,
                    :published => true,
                    :allow_pings => nil,
                    :allow_comments => nil,
