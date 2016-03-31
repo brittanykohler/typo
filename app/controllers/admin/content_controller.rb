@@ -38,9 +38,14 @@ class Admin::ContentController < Admin::BaseController
   end
 
   def merge
-    current_article = Article.find(params[:id])
-    @article = current_article.merge_with(params[:merge_with])
-    new_or_edit
+    if Article.exists?(params[:id])
+      current_article = Article.find(params[:id])
+      @article = current_article.merge_with(params[:merge_with])
+      new_or_edit
+    else
+      flash[:error] = _("Error, the article you wish to merge does not exist")
+      redirect_to :action => 'index'
+    end
   end
 
   def destroy
